@@ -1,0 +1,66 @@
+---
+layout: runbook
+title: '#4471 · what the reports show: three problems, not one'
+owner: Adam Hinckley
+status: open
+reviewed: 2026-10-28
+signature: Adam Hinckley
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const issues = {
+    parser: 'https://github.com/adamhinckley/support-kb/issues/1',
+    hint: 'https://github.com/adamhinckley/support-kb/issues/2',
+    'one-day': 'https://github.com/adamhinckley/support-kb/issues/3',
+  };
+</script>
+
+[#4471](/kb/incidents/4471) is marked known: one issue, one fix queued. The reports merged into it
+show more than one problem. They were merged on subject line alone
+([decision 0001](/kb/decisions/0001-dedupe-by-subject)), so nobody read the bodies, and
+different bugs that people describe the same way ended up in one ticket.
+
+<Callout kind="warn">
+The queued parser fix does not close #4471. Two of these problems survive it.
+</Callout>
+
+## The problems
+
+<ProblemTable ticket={4471} {issues} />
+
+Every number here is computed from the export when the page renders (`#lib/kb/problems.ts`), so it
+moves when the desk merges more reports.
+
+### `parser`: the shared parser reads dates month first
+
+Day-first tenants write 7/4 for 7 April; the parser stores 4 July. This is what #4471 describes,
+and it is most of the reports. Every channel, every tenant.
+
+### `hint`: booking-v3 tells people to type the month first
+
+The booking-v3 form prints `MM/DD/YYYY` under its date field. People at day-first tenants type what
+it says, and the form reads their input day first. The date comes out swapped although the person
+did what they were told. Only the booking form, only tenants on booking-v3. A parser fix leaves
+this as it is; the hint has to change.
+
+### `one-day`: dates move by one day
+
+These are not swaps. Tuesday 12 May shows as Monday 11 May; one meeting reached Lisbon as Tuesday
+and Toronto as Monday. No month/day mix-up moves a date by one day. It looks like a time-zone or
+daylight-saving conversion bug. The desk already listed these reports in `desk-notes.json`; the
+#4471 page still counts them under `parser`, where they have no ticket.
+
+## How to tell them apart
+
+1. Read the body, not the subject. Every subject in #4471 says "wrong day".
+2. Day and month swapped, and the report came through a booking-v3 form: `hint`.
+3. Day and month swapped, any other way in: `parser`.
+4. Moved by one day: `one-day`.
+
+Intake's tag (`meta.intakeTag`) guesses from the reporter's browser, not the tenant. Do not sort by it.
+
+<RenderStamp {signature} />
