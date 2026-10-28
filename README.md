@@ -39,5 +39,7 @@ Exported 2026-10-04 from the `support` repo, `apps/kb/` → `src/`.
 
 - Page: `src/routes/kb/incidents/4471-split/+page.svx`, signed by Adam Hinckley (desk ref DR-4VVJ-RYWF).
 - Logic: `src/lib/kb/problems.ts` and `src/lib/kb/ProblemTable.svelte`. Counts are computed at render.
-- The page as the desk sees it: `rendered/kb-incidents-4471-split.html` (standalone) and `rendered/site/` (full static build).
+- The page as the desk sees it: `rendered/kb-incidents-4471-split.png` (screenshot), `rendered/kb-incidents-4471-split.html` (standalone) and `rendered/site/` (full static build).
+
+![The page as the desk sees it](rendered/kb-incidents-4471-split.png)
 - Tickets: [#1 parser](https://github.com/adamhinckley/support-kb/issues/1) · [#2 hint](https://github.com/adamhinckley/support-kb/issues/2) · [#3 one-day](https://github.com/adamhinckley/support-kb/issues/3)

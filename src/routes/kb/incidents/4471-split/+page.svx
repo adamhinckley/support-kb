@@ -25,8 +25,8 @@ show more than one problem. They were merged on subject line alone
 different bugs that people describe the same way ended up in one ticket.
 
 <Callout kind="warn">
-Engineering closed #4471 on 5 October: `parser` fixed, `hint` won't fix (booking-v3 retired).
-`one-day` was in neither and is still open.
+Engineering closed #4471 on 5 October: <code>parser</code> fixed, <code>hint</code> won't fix
+(booking-v3 retired). <code>one-day</code> was in neither and is still open.
 </Callout>
 
 ## Where each one stands
