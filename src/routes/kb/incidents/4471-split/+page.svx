@@ -25,8 +25,17 @@ show more than one problem. They were merged on subject line alone
 different bugs that people describe the same way ended up in one ticket.
 
 <Callout kind="warn">
-The queued parser fix does not close #4471. Two of these problems survive it.
+Engineering closed #4471 on 5 October: `parser` fixed, `hint` won't fix (booking-v3 retired).
+`one-day` was in neither and is still open.
 </Callout>
+
+## Where each one stands
+
+| problem | state | why |
+|---|---|---|
+| `parser` | fixed, closed | fix(dates): parse dd/mm for eu locales |
+| `hint` | won't fix, closed | the booking-v3 form is retired, so its hint is gone with it |
+| `one-day` | **open** | no fix; not part of the engineering update on #4471 |
 
 ## The problems
 
@@ -45,7 +54,7 @@ and it is most of the reports. Every channel, every tenant.
 The booking-v3 form prints `MM/DD/YYYY` under its date field. People at day-first tenants type what
 it says, and the form reads their input day first. The date comes out swapped although the person
 did what they were told. Only the booking form, only tenants on booking-v3. A parser fix leaves
-this as it is; the hint has to change.
+this as it is; the hint has to change. Retiring booking-v3 removes it.
 
 ### `one-day`: dates move by one day
 
