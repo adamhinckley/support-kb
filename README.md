@@ -37,7 +37,7 @@ Exported 2026-10-04 from the `support` repo, `apps/kb/` → `src/`.
 
 ## Added: #4471 split (MEGA.dev S01E03)
 
-- Page: `src/routes/kb/incidents/4471-split/+page.svx`, signed by Adam Hinckley (desk ref DR-4VVJ-RYWF).
+- Page: `src/routes/kb/incidents/4471-split/+page.svx`, owner Adam Hinckley, signed with the course ticket (desk ref DR-K74W-2Q68).
 - Logic: `src/lib/kb/problems.ts` and `src/lib/kb/ProblemTable.svelte`. Counts are computed at render.
 - The page as the desk sees it: `rendered/kb-incidents-4471-split.png` (screenshot), `rendered/kb-incidents-4471-split.html` (standalone) and `rendered/site/` (full static build).
 
